@@ -1,17 +1,19 @@
-name: Build about.html
+name: Build pages
 
 on:
   push:
     paths:
       - 'about/**'
       - 'build_about.py'
+      - 'gallery.txt'
+      - 'build_gallery.py'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: build-about
+  group: build-pages
   cancel-in-progress: false
 
 jobs:
@@ -24,15 +26,17 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Build about.html from about/**/*.txt
-        run: python build_about.py
+      - name: Build pages from source files
+        run: |
+          python build_about.py
+          python build_gallery.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add about.html
+          git add about.html gallery.html
           if ! git diff --cached --quiet; then
-            git commit -m "build(about): auto-update about.html from about/**"
+            git commit -m "build(chore): auto-update pages from source files"
             git push
           fi
