@@ -70,7 +70,7 @@ def build_card(card):
     cap = esc(card.get("cap", ""))
     return (
         "                            <figure class=\"gallery-card\">\n"
-        f"                                <img src=\"{src}\" alt=\"{alt}\">\n"
+        f"                                <img src=\"{src}\" alt=\"{alt}\" loading=\"lazy\" decoding=\"async\">\n"
         f"                                <figcaption>{cap}</figcaption>\n"
         "                            </figure>"
     )
