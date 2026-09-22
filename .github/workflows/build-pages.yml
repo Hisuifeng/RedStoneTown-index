@@ -5,7 +5,7 @@ on:
     paths:
       - 'about/**'
       - 'build_about.py'
-      - 'gallery.txt'
+      - 'img/gallery/gallery.txt'
       - 'build_gallery.py'
   workflow_dispatch:
 

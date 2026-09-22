@@ -14,7 +14,7 @@ import re
 import sys
 
 TEMPLATE = "gallery.html"
-SOURCE = "gallery.txt"
+SOURCE = "img/gallery/gallery.txt"
 TRACK_START = "<!-- gallery:start -->"
 TRACK_END = "<!-- gallery:end -->"
 GALLERY_BLOCK = re.compile(
