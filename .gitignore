@@ -1,7 +1,0 @@
-# 通用
-.DS_Store
-__pycache__/
-*.pyc
-
-# 构建导出（由 build_about.py --export 生成）
-temp/
