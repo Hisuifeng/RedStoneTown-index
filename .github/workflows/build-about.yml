@@ -1,0 +1,38 @@
+name: Build about.html
+
+on:
+  push:
+    paths:
+      - 'about/**'
+      - 'build_about.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-about
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build about.html from about/**/*.txt
+        run: python build_about.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add about.html
+          if ! git diff --cached --quiet; then
+            git commit -m "build(about): auto-update about.html from about/**"
+            git push
+          fi
