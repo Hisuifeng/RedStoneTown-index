@@ -1,15 +1,4 @@
-title: "F8fq"
-time: "2026/09/22"
-text: "const KEY = new TextEncoder().encode("原神启动");
-
-const 原神牛逼加密 = s => btoa(String.fromCharCode(
-  ...new TextEncoder().encode(s).map((b, i) => b ^ KEY[i % KEY.length])
-));
-
-const 原神牛逼解密 = s => new TextDecoder().decode(
-  Uint8Array.from(atob(s), c => c.charCodeAt(0))
-    .map((b, i) => b ^ KEY[i % KEY.length])
-);
-
-console.log(原神牛逼加密("原神牛逼")); // AAAAAAAAAhk0DAoU
-console.log(原神牛逼解密("AAAAAAAAAhk0DAoU")); // 原神牛逼"
+title: "投影模组发现重大安全漏洞"
+time: "2026/07/07"
+text: "为了您的电脑安全 请立刻使用更器更新红石镇客户端至5.4.4
+如您用的不是红石镇客户端也请立刻更新投影模组至最新版"
