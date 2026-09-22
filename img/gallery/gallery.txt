@@ -47,6 +47,11 @@ src: img/gallery/p6.png
 alt: 迪客
 cap: 06 / Danger
 
+[img]
+src: img/gallery/p7.png
+alt: 秦始皇骑北极熊
+cap: 06 / Qin Shi Huang
+
 [track]
 
 [img]
@@ -78,3 +83,8 @@ cap: 01 / Townscape
 src: img/gallery/p3.png
 alt: 建筑
 cap: 03 / Architecture
+
+[img]
+src: img/gallery/p7.png
+alt: 秦始皇骑北极熊
+cap: 06 / Qin Shi Huang
