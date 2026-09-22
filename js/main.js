@@ -135,4 +135,19 @@
         transbar.classList.add('in');
         setTimeout(function () { window.location.href = a.href; }, TRANSIT_MS + 60);
     });
+
+    /* 移动端汉堡菜单 */
+    var burger = document.querySelector('.nav-burger');
+    var navHead = document.querySelector('.nav');
+    if (burger && navHead) {
+        burger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var open = navHead.classList.toggle('open');
+            burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            burger.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+        });
+        navHead.addEventListener('click', function (e) {
+            if (e.target.closest('.nav-link')) navHead.classList.remove('open');
+        });
+    }
 })();
