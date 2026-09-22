@@ -28,8 +28,16 @@ jobs:
 
       - name: Build pages from source files
         run: |
-          python build_about.py
-          python build_gallery.py
+          if [ -d about ]; then
+            python build_about.py
+          else
+            echo "skip: no about/ source directory"
+          fi
+          if [ -f img/gallery/gallery.txt ]; then
+            python build_gallery.py
+          else
+            echo "skip: no img/gallery/gallery.txt source"
+          fi
 
       - name: Commit and push if changed
         run: |
