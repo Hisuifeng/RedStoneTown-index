@@ -12,26 +12,8 @@
         sessionStorage.setItem('rst_first_load', '1');
     } catch (e) { /* ignore */ }
 
-    function createEl(tag, id, html) {
-        var el = document.createElement(tag);
-        el.id = id;
-        if (html != null) el.innerHTML = html;
-        return el;
-    }
-
-    var transbar = document.getElementById('transbar') || createEl('div', 'transbar');
-    if (transbar.parentNode !== document.body) document.body.appendChild(transbar);
-
-    var loader = document.getElementById('loader') || createEl('div', 'loader',
-        '<div class="loader-box">' +
-        '<div class="loader-corner corner-tl"></div>' +
-        '<div class="loader-corner corner-tr"></div>' +
-        '<div class="loader-corner corner-bl"></div>' +
-        '<div class="loader-corner corner-br"></div>' +
-        '<div class="loader-progress"><span></span></div>' +
-        '<div class="loader-text"><span>LOADING<span class="loader-cursor">_</span></span><span class="loader-state"></span><b>0%</b></div>' +
-        '</div>');
-    if (loader.parentNode !== document.body) document.body.appendChild(loader);
+    var transbar = document.getElementById('transbar');
+    var loader = document.getElementById('loader');
 
     var pct = loader.querySelector('.loader-text b');
     var bar = loader.querySelector('.loader-progress span');
@@ -48,15 +30,11 @@
         for (var i = 0; i < imgs.length; i++) {
             if (!imgs[i].complete) return false;
         }
-        var med = document.querySelectorAll('video, audio');
-        for (var j = 0; j < med.length; j++) {
-            if (med[j].readyState < 2) return false;
-        }
         return true;
     }
 
     if (isFirstLoad) {
-        var items = document.querySelectorAll('.nav, .hero, .poster-band, .show, .intro, .cta, .page-head, .tl-section, .rule-section, .flow-hero, .gallery-band, .footer');
+        var items = document.querySelectorAll('.nav, .hero, .poster-band, .intro, .cta, .page-head, .tl-section, .rule-section, .footer');
         for (var i = 0; i < items.length; i++) {
             items[i].style.animationDelay = (i * 90) + 'ms';
         }
@@ -150,4 +128,110 @@
             if (e.target.closest('.nav-link')) navHead.classList.remove('open');
         });
     }
+
+    /* ========== 社区组织 · Coverflow 卡片切换（index.html「03 社区组织」） ========== */
+    (function () {
+        var stage = document.querySelector('.dept-stage');
+        if (!stage) return;
+
+        /* 部门数据（顺序即底部标签的 01~04 顺序） */
+        var ITEMS = [
+            {
+                no: '01', name: '研究部', en: 'R &amp; D',
+                img: 'img/department/研究部-白.png', alt: '研究部',
+                desc: '红石镇技术研发团队，让红石镇的技术始终走在服务器最前列。',
+                quote: '“把幻想变为可能，把可能变为现实。”'
+            },
+            {
+                no: '02', name: '建筑部', en: 'Builder',
+                img: 'img/department/建筑部-白.png', alt: '建筑部',
+                desc: '红石镇建筑、规划团队。',
+                quote: '“作为创世神，手握真理（WE 和 AX），世界的缔造者，让世间万物重构成最美妙的样子。”'
+            },
+            {
+                no: '03', name: '废物部', en: 'Fun',
+                img: 'img/department/废物部-白.png', alt: '废物部',
+                desc: '红石镇的乐子潜力团队，聊天吹水，当潜水炸弹。',
+                quote: '“我直接耍起嘛。”'
+            },
+            {
+                no: '04', name: '管理部', en: 'Admin',
+                img: 'img/department/管理部-白.png', alt: '管理部',
+                desc: '红石镇管理部门。',
+                quote: '“万物秩序的终点。”'
+            }
+        ];
+
+        var n = ITEMS.length;
+        var cur = 0;
+        var tabs = document.querySelectorAll('.dept-tab');
+        var cards = [];
+
+        function cardHTML(d) {
+            return '<div class="dept-card-img"><img src="' + d.img + '" alt="' + d.alt + '"></div>' +
+                '<figcaption>' +
+                '<span class="dept-card-no">' + d.no + '</span>' +
+                '<h3>' + d.name + '</h3>' +
+                '<em class="dept-card-en">' + d.en + '</em>' +
+                '<p class="dept-card-desc">' + d.desc + '</p>' +
+                '<p class="dept-card-quote">' + d.quote + '</p>' +
+                '</figcaption>';
+        }
+
+        /* 每个部门一张卡片，全部叠放在舞台中央 */
+        for (var i = 0; i < n; i++) {
+            (function (idx) {
+                var fig = document.createElement('figure');
+                fig.className = 'dept-card';
+                fig.setAttribute('role', 'button');
+                fig.setAttribute('tabindex', '0');
+                fig.setAttribute('aria-label', ITEMS[idx].name);
+                fig.innerHTML = cardHTML(ITEMS[idx]);
+
+                fig.addEventListener('click', function () { go(idx); });
+                fig.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        go(idx);
+                    }
+                });
+
+                stage.appendChild(fig);
+                cards.push(fig);
+            })(i);
+        }
+
+        /* 与当前卡的环形偏移，归一到 -1 / 0 / 1 / 其余（背面） */
+        function offsetOf(i) {
+            var d = (i - cur + n) % n;
+            return d > n / 2 ? d - n : d;
+        }
+
+        function update() {
+            for (var i = 0; i < n; i++) {
+                var off = offsetOf(i);
+                var pos = off === 0 ? 'pos-0' : off === 1 ? 'pos-1' : off === -1 ? 'pos--1' : 'pos-hidden';
+                cards[i].className = 'dept-card ' + pos;
+                cards[i].setAttribute('aria-hidden', off === -1 || off === 0 || off === 1 ? 'false' : 'true');
+                cards[i].setAttribute('tabindex', pos === 'pos-hidden' ? '-1' : '0');
+            }
+            for (var t = 0; t < tabs.length; t++) {
+                tabs[t].classList.toggle('active', t === cur);
+            }
+            stage.setAttribute('data-no', ITEMS[cur].no);
+        }
+
+        function go(i) {
+            cur = (i + n) % n;
+            update();
+        }
+
+        for (var j = 0; j < tabs.length; j++) {
+            (function (idx) {
+                tabs[idx].addEventListener('click', function () { go(idx); });
+            })(j);
+        }
+
+        update();
+    })();
 })();

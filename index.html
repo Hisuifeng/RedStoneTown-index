@@ -13,6 +13,7 @@
     <link rel="canonical" href="__SITE_URL__/">
     <title>红石镇 | Redstone Town - Wee-Axe 创造服社区</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -105,7 +106,7 @@
     <section class="hero grid-bg corners">
         <i></i><i></i>
         <div class="hero-flow">
-            <section class="flowing_section" id="hero-flow" aria-hidden="true"></section>
+            <section class="flowing-section" id="hero-flow" aria-hidden="true"></section>
         </div>
         <div class="hero-inner">
             <p class="eyebrow">From Wee-Axe &middot; Minecraft 公益创造服</p>
@@ -137,9 +138,7 @@
             <p class="eyebrow">// Redstone Town</p>
             <h2 class="intro-title">什么是<span class="hl">红石镇</span><span class="cursor"></span></h2>
 
-            <div class="about-grid">
-                <p class="about-lead">红石镇是隶属于 Wee-Axe 服务器的社区，<b>目前是服务器中的最大社区</b>。</p>
-            </div>
+            <p class="about-lead">红石镇是隶属于 Wee-Axe 服务器的社区，<b>目前是服务器中的最大社区</b>。</p>
         </section>
 
         <!-- ========== 02 · 社区情况 ========== -->
@@ -164,74 +163,25 @@
             </div>
         </section>
 
-        <!-- ========== 03 · 社区组织 ========== -->
+        <!-- ========== 03 · 社区组织（卡片轮换） ========== -->
         <section class="intro">
             <span class="intro-no">03</span>
             <p class="eyebrow">// Organization</p>
             <h2 class="intro-title">社区组织<span class="cursor"></span></h2>
 
-            <div class="dept">
-                <input class="radio" type="radio" name="dept" id="dept-1" checked>
-                <input class="radio" type="radio" name="dept" id="dept-2">
-                <input class="radio" type="radio" name="dept" id="dept-3">
-                <input class="radio" type="radio" name="dept" id="dept-4">
-
-                <div class="dept-tabs">
-                    <label class="tab-1" for="dept-1"><b>01</b>研究部</label>
-                    <label class="tab-2" for="dept-2"><b>02</b>建筑部</label>
-                    <label class="tab-3" for="dept-3"><b>03</b>废物部</label>
-                    <label class="tab-4" for="dept-4"><b>04</b>管理部</label>
+            <div class="dept-carousel">
+                <div class="dept-stage">
+                    <!-- 封面流动卡片：部门卡片由 js/main.js 生成，
+                         左右两侧卡片可点击切换到对应部门 -->
                 </div>
 
-                <div class="dept-cards">
-                    <figure class="dept-card card-dept-1">
-                        <div class="dept-img"><img src="img/department/研究部-白.png" alt="研究部"></div>
-                        <figcaption>
-                            <div class="dept-head">
-                                <h3>研究部</h3>
-                                <em class="dept-en">R &amp; D</em>
-                            </div>
-                            <p class="dept-desc">红石镇技术研发团队，让红石镇的技术始终走在服务器最前列。</p>
-                            <p class="dept-quote">"把幻想变为可能，把可能变为现实。"</p>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="dept-card card-dept-2">
-                        <div class="dept-img"><img src="img/department/建筑部-白.png" alt="建筑部"></div>
-                        <figcaption>
-                            <div class="dept-head">
-                                <h3>建筑部</h3>
-                                <em class="dept-en">Builder</em>
-                            </div>
-                            <p class="dept-desc">红石镇建筑、规划团队。</p>
-                            <p class="dept-quote">"作为创世神，手握真理（WE 和 AX），世界的缔造者，让世间万物重构成最美妙的样子。"</p>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="dept-card card-dept-3">
-                        <div class="dept-img"><img src="img/department/废物部-白.png" alt="废物部"></div>
-                        <figcaption>
-                            <div class="dept-head">
-                                <h3>废物部</h3>
-                                <em class="dept-en">Fun</em>
-                            </div>
-                            <p class="dept-desc">红石镇的乐子潜力团队，聊天吹水，当潜水炸弹。</p>
-                            <p class="dept-quote">"我直接耍起嘛。"</p>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="dept-card card-dept-4">
-                        <div class="dept-img"><img src="img/department/管理部-白.png" alt="管理部"></div>
-                        <figcaption>
-                            <div class="dept-head">
-                                <h3>管理部</h3>
-                                <em class="dept-en">Admin</em>
-                            </div>
-                            <p class="dept-desc">红石镇管理部门。</p>
-                            <p class="dept-quote">"万物秩序的终点。"</p>
-                        </figcaption>
-                    </figure>
-                </div>
+                <!-- 快速切换标签（同时标出当前部门） -->
+                <ol class="dept-tabs">
+                    <li><button class="dept-tab" type="button"><b>01</b>研究部</button></li>
+                    <li><button class="dept-tab" type="button"><b>02</b>建筑部</button></li>
+                    <li><button class="dept-tab" type="button"><b>03</b>废物部</button></li>
+                    <li><button class="dept-tab" type="button"><b>04</b>管理部</button></li>
+                </ol>
 
                 <a class="dept-more" href="department.html">查看更多</a>
             </div>

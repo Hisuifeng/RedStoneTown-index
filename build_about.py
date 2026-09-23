@@ -18,10 +18,8 @@ import sys
 ABOUT_DIR = "about"
 TEMPLATE = "about.html"
 EXPORT_DIR = "temp"
-SECTION_TAG = 'class="tl-section"'
 TIMELINE_OL = re.compile(r'(<ol class="timeline">)(.*?)(</ol>)', re.S)
-
-TEXT_FIELD = 'text: "'
+TEXT_RE = re.compile(r'^text:\s*"(.*)"\s*$', re.M | re.S)
 
 
 def read_files(directory):
@@ -48,15 +46,9 @@ def parse_txt(content):
     if m:
         time = m.group(1)
 
-    idx = content.find(TEXT_FIELD)
-    if idx != -1:
-        raw = content[idx + len(TEXT_FIELD):]
-        # 去掉末尾的收尾引号（可能带换行）
-        for suffix in ('"\n', '"'):
-            if raw.endswith(suffix):
-                raw = raw[: -len(suffix)]
-                break
-        text = raw.strip("\n")
+    m = TEXT_RE.search(content)
+    if m:
+        text = m.group(1).replace("\r\n", "\n").replace("\r", "\n")
 
     return title, time, text
 

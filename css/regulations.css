@@ -1,0 +1,13 @@
+/* ============================================================
+   红石镇 | Redstone Town —— 管理条例样式（regulations.html）
+   ============================================================ */
+
+/* ========== 1. 条例署名 ========== */
+.rules-author {
+    margin-top: 40px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+}

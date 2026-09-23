@@ -1,0 +1,100 @@
+/* ============================================================
+   红石镇 | Redstone Town —— 公告 · 时间线样式（about.html）
+   ============================================================ */
+
+/* ========== 1. 公告 · 时间线 ========== */
+.tl-section {
+    padding: 90px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline {
+    border-left: 2px solid var(--line-strong);
+    padding-left: 36px;
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+/* 时间线上方块（本设计用方形替代圆形） */
+.tl-head::before {
+    content: "";
+    position: absolute;
+    left: -46px;
+    top: 24px;
+    width: 10px;
+    height: 10px;
+    background: var(--bg);
+    border: 2px solid var(--line-strong);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.tl-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 0;
+    cursor: pointer;
+    border-bottom: 1px solid var(--line);
+}
+
+.tl-label {
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.tl-date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* 展开面板 */
+.tl-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.tl-body p {
+    white-space: pre-line; /* 保留源码中的换行 */
+    color: var(--muted);
+    padding: 18px 0 26px;
+    font-size: 15px;
+}
+
+/* 选中态：方块与标题变红 */
+.radio:checked + .tl-head::before {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+.radio:checked + .tl-head .tl-label {
+    color: var(--red);
+}
+
+.radio:checked + .tl-head {
+    border-bottom-color: var(--red);
+}
+
+.radio:checked ~ .tl-body {
+    max-height: 500px;
+}
+
+@media (max-width: 820px) {
+    .tl-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .tl-date {
+        align-self: flex-end;
+    }
+}

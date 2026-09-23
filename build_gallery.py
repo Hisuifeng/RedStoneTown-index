@@ -110,7 +110,7 @@ def build_band(tracks):
 
 def main():
     if not os.path.isfile(SOURCE):
-        print(f"错误：未找到 {SOURCE}/，请在站点根目录运行本脚本。")
+        print(f"错误：未找到 {SOURCE}，请在站点根目录运行本脚本。")
         sys.exit(1)
 
     tracks = read_source(SOURCE)
