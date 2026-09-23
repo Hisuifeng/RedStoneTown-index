@@ -1,0 +1,90 @@
+# 红石镇图集配置 gallery.txt
+#
+# 用法：
+#   一个 [track] 区块 = 一条自动滚动的图廊轨道。
+#   区块内的 [img] 按出现顺序排列，每张图片三个字段：
+#     src:  图片文件路径（相对站点根目录）
+#     alt:  无障碍替代文本
+#     cap:  显示在图下方的图注
+#
+#   轨道数量：
+#     第 1 条轨道 -> 页面上半部 gallery-a（正向滚动）
+#     第 2 条轨道 -> 页面下半部 gallery-b（反向滚动）
+#
+#   修改后运行：py build_gallery.py
+#   或在 GitHub 推送本文件，Actions 自动构建 gallery.html。
+#   意思是什么呢？意思是马希鲁！你可以改的！
+
+[track]
+
+[img]
+src: img/gallery/p1.png
+alt: 红石镇全景
+cap: 01 / Townscape
+
+[img]
+src: img/gallery/p2.png
+alt: 赤石
+cap: 02 / Redstone
+
+[img]
+src: img/gallery/p3.png
+alt: 建筑
+cap: 03 / Architecture
+
+[img]
+src: img/gallery/p4.png
+alt: 博弈
+cap: 04 / Game
+
+[img]
+src: img/gallery/p5.png
+alt: 理解
+cap: 05 / Mascot
+
+[img]
+src: img/gallery/p6.png
+alt: 迪客
+cap: 06 / Danger
+
+[img]
+src: img/gallery/p7.png
+alt: 秦始皇骑北极熊
+cap: 06 / Qin Shi Huang
+
+[track]
+
+[img]
+src: img/gallery/p4.png
+alt: 博弈
+cap: 04 / Game
+
+[img]
+src: img/gallery/p6.png
+alt: 迪客
+cap: 06 / Danger
+
+[img]
+src: img/gallery/p2.png
+alt: 赤石
+cap: 02 / Redstone
+
+[img]
+src: img/gallery/p5.png
+alt: 理解
+cap: 05 / Mascot
+
+[img]
+src: img/gallery/p1.png
+alt: 红石镇全景
+cap: 01 / Townscape
+
+[img]
+src: img/gallery/p3.png
+alt: 建筑
+cap: 03 / Architecture
+
+[img]
+src: img/gallery/p7.png
+alt: 秦始皇骑北极熊
+cap: 06 / Qin Shi Huang

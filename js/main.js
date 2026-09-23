@@ -71,7 +71,7 @@
     var slowed = false;
     var fake = setInterval(function () {
         setPct(Math.min(((performance.now() - started) / 1000) * 80, 88));
-        if (!finished && !slowed && (performance.now() - started) >= SLOW_MS && mediaAllDone()) {
+        if (!finished && !slowed && isFirstLoad && (performance.now() - started) >= SLOW_MS && mediaAllDone()) {
             slowed = true;
             state.textContent = 'DATA';
             loader.classList.remove('idle');

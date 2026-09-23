@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="红石镇（Wee-Axe 我的世界创造服社区）官方公告与时间线：客户端更新、RNS 网络系统、服务器版本升级等社区动态。">
+    <meta name="keywords" content="红石镇, Redstone Town, 红石镇公告, Wee-Axe, 我的世界, Minecraft, 创造服, 客户端更新, 红石镇客户端">
+    <meta name="author" content="红石镇 Redstone Town">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0c">
+    <link rel="icon" href="img/favicon.png">
+    <link rel="canonical" href="__SITE_URL__/about.html">
+    <title>红石镇 | Redstone Town - 公告</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="红石镇 Redstone Town">
+    <meta property="og:title" content="红石镇 | Redstone Town - 公告">
+    <meta property="og:description" content="红石镇官方公告与时间线：客户端更新、RNS 网络系统、服务器版本升级等社区动态。">
+    <meta property="og:image" content="__SITE_URL__/img/gallery/p2.png">
+    <meta property="og:url" content="__SITE_URL__/about.html">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="红石镇 | Redstone Town - 公告">
+    <meta name="twitter:description" content="红石镇官方公告与时间线：客户端更新、RNS 网络系统、服务器版本升级等社区动态。">
+    <meta name="twitter:image" content="__SITE_URL__/img/gallery/p2.png">
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "__SITE_URL__/about.html",
+        "url": "__SITE_URL__/about.html",
+        "name": "红石镇公告",
+        "inLanguage": "zh-CN",
+        "isPartOf": { "@id": "__SITE_URL__/#website" },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "首页", "item": "__SITE_URL__/" },
+                { "@type": "ListItem", "position": 2, "name": "公告" }
+            ]
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- ========== 加载幕布与进度条（首屏防闪现） ========== -->
+    <div id="transbar" class="cover"></div>
+    <div id="loader">
+        <div class="loader-box">
+            <div class="loader-corner corner-tl"></div>
+            <div class="loader-corner corner-tr"></div>
+            <div class="loader-corner corner-bl"></div>
+            <div class="loader-corner corner-br"></div>
+            <div class="loader-progress"><span></span></div>
+            <div class="loader-text"><span>LOADING<span class="loader-cursor">_</span></span><span class="loader-state"></span><b>0%</b></div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            try {
+                if (sessionStorage.getItem('rst_first_load')) {
+                    document.getElementById('loader').classList.add('idle');
+                }
+            } catch (e) { }
+        })();
+    </script>
+
+    <!-- ========== 顶部导航 ========== -->
+    <header class="nav">
+        <a class="nav-brand" href="index.html">
+            <img src="img/favicon.png" alt="红石镇图标">
+            <span>红石镇</span>
+            <em>Redstone Town</em>
+        </a>
+        <nav class="nav-links">
+            <a class="nav-link active" href="about.html">公告</a>
+            <a class="nav-link" href="gallery.html">图集</a>
+            <a class="nav-link" href="regulations.html">条例</a>
+            <a class="nav-link" href="department.html">组织</a>
+        </nav>
+        <button class="nav-burger" type="button" aria-label="打开菜单" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- ========== 页首 ========== -->
+    <section class="page-head grid-bg corners">
+        <i></i><i></i>
+        <div class="wrap">
+            <p class="eyebrow">Redstone Town // Archive</p>
+            <h1>红石镇 <span class="hl">公告</span></h1>
+            <p class="page-head-sub">Something about Redstone Town.</p>
+        </div>
+    </section>
+
+    <!-- ========== 时间线 ========== -->
+    <section class="tl-section">
+        <div class="wrap">
+            <h2 class="section-title"><span class="hl">//</span> 红石镇 时间线</h2>
+
+            <ol class="timeline">
+                <li>
+                    <input class="radio" id="tl8" name="tl" type="radio" checked>
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl8">欢迎来到红石镇主页！</label>
+                        <span class="tl-date">2026/09/23</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>红石镇主页项目自重构以来终于上线了，花了整整1day
+想知道重构前的版本吗？找光÷(Hikari)的网课老师要去吧"</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input class="radio" id="tl7" name="tl" type="radio">
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl7">红石镇客户端版本已更新至5.5</label>
+                        <span class="tl-date">2026/09/22</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>本次更新主要包括:
+-新增游戏内待办事项功能
+-优化DH硬盘使用率
+-常规模组更新
+-优化特定条件下的帧率和稳定性
+——————————
+使用红石镇客户端更新器直接更新
+or
+手动下载链接:
+https://github.com/Mashiro-Neri/Redstone-Town-Client_update_modpack/releases#release-v20260705-024113</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input class="radio" id="tl6" name="tl" type="radio">
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl6">红石镇客户端更新器震撼发布</label>
+                        <span class="tl-date">2026/07/05</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>您是否还在为红石镇客户端下载麻烦更新麻烦而厌烦
+您是否还在为自己组的客户端性能不够好而烦
+您是否还在为自己组的客户端老是过时而失望
+
+那么请不要犹豫立刻访问
+https://github.com/Mashiro-Neri/RSTC-Updater
+获取最新的红石镇客户端更新器!
+（或者群文件的红石镇客户端更新器文件夹里）
+
+用法:
+1.如果没有安装过红石镇客户端可以在里面下载安装包然后拖到启动器安装
+2.如果已有客户端或者安装好后将两个文件直接丢到红石镇的版本目录里（虽然不丢也行）
+3.根据提示下载更新即可
+我向你们保证100%纯AI没有一点人工</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input class="radio" id="tl5" name="tl" type="radio">
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl5">红石镇客户端版本已更新至 4.7.2</label>
+                        <span class="tl-date">2026/1/9</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>本次更新主要包括：
+- 更新 MOD
+- 优化性能
+- 在聊天栏添加表情符号面板
+- 移除烦人的雨雾和沙尘暴效果
+
+1.7.2 修复内容：
+- 枪械材质包回归
+- 清除无用模组
+- 默认不启用 DH 和 AX</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input class="radio" id="tl4" name="tl" type="radio">
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl4">红石镇 4.0 现已全面升级完成</label>
+                        <span class="tl-date">2025/8/17</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>重磅更新内容：
+
+RNS（红石镇网络系统）
+- 在几个月漫长的等待下 RNS 终于结束了内测
+- 足不出户在家收发信息，并且使用强大的线上功能
+
+RNS 终端
+- 使用终端访问 RNS 线上服务
+- 可上门预约安装，也可使用公共终端
+
+RNS 网银系统
+- 使用终端访问线上网银，管理您的私人物品
+
+RGS（红石镇电网系统）
+- 电网主网全面进入无线时代，状态及时更新，还能使用基站定位功能
+
+城区重新规划
+- 大幅重排城区内容，小镇焕然一新
+
+电话亭（即将推出……）
+- 方便快捷的传送电话亭，让您在热门景点中随意穿梭</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input class="radio" id="tl3" name="tl" type="radio">
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl3">服务器已更新到 1.21.4</label>
+                        <span class="tl-date">2025/4/26</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>可在群文件里下载红石镇客户端安装包
+（拖动到启动器里即可下载）
+
+在使用之前请仔细查看说明书</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input class="radio" id="tl2" name="tl" type="radio">
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl2">红石镇客户端 3.0 正式发布</label>
+                        <span class="tl-date">2025/1/27</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>1. 本次更新主打优化，相较于 2.0 拥有超级大的提升
+2. 添加了方便玩家的功能模组：
+- 后台相关消息提醒
+- 聊天补丁（超长聊天记录、消息时间、消息复制）
+- Tweakeroo（灵魂出窍、一键伽马值、渲染不可见实体等）
+- 回放模组
+- NBT 编辑器
+- 遥远的地平线
+- 截图管理器
+- ……
+3. 添加了少量界面美化模组，例如按键显示、弹性沙子动画、左上角玩家模型等
+4. 添加了方便红石玩家的材质包，相比 2.0 更加全面
+5. 完全抛弃高清修复！不用再为各种兼容性问题而苦恼了
+6. 没有万用皮肤补丁！不会遇到串皮肤、串披风等皮肤问题</p>
+                    </div>
+                </li>
+
+                <li>
+                    <input class="radio" id="tl1" name="tl" type="radio">
+                    <div class="tl-head">
+                        <label class="tl-label" for="tl1">红石镇 tg 频道开放</label>
+                        <span class="tl-date">2023/10/22</span>
+                    </div>
+                    <div class="tl-body">
+                        <p>感兴趣的可以加进来聊聊天
+
+跳转链接（复制到浏览器）：t.me/WeeAxe_Rs</p>
+                    </div>
+                </li>
+                </ol>
+        </div>
+    </section>
+
+    <!-- ========== 底部 ========== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h3>More</h3>
+                <a href="gallery.html">画廊</a>
+                <a href="regulations.html">了解镇规</a>
+                <a href="about.html">镇内公告</a>
+                <a href="department.html">部门介绍</a>
+            </div>
+            <div class="footer-col">
+                <h3>友情链接</h3>
+                <a href="https://www.weeaxe.cn/">Wee-Axe | Minecraft 公益创造服</a>
+            </div>
+            <div class="footer-col">
+                <h3>加入我们</h3>
+                <a href="https://qm.qq.com/q/m9zEOENkUE">QQ 群</a>
+                <a href="https://t.me/+dJm8s9_2y_lhOTc1">Telegram 群</a>
+            </div>
+        </div>
+        <p class="footer-bottom">社区、技术、链接彼此 | 红石镇 - Redstone Town (2026)</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
