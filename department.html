@@ -52,6 +52,29 @@
 
 <body>
 
+    <!-- ========== 加载幕布与进度条（首屏防闪现） ========== -->
+    <div id="transbar" class="cover"></div>
+    <div id="loader">
+        <div class="loader-box">
+            <div class="loader-corner corner-tl"></div>
+            <div class="loader-corner corner-tr"></div>
+            <div class="loader-corner corner-bl"></div>
+            <div class="loader-corner corner-br"></div>
+            <div class="loader-progress"><span></span></div>
+            <div class="loader-text"><span>LOADING<span class="loader-cursor">_</span></span><span class="loader-state"></span><b>0%</b></div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            try {
+                if (sessionStorage.getItem('rst_first_load')) {
+                    document.getElementById('loader').classList.add('idle');
+                }
+            } catch (e) { }
+        })();
+    </script>
+
     <!-- ========== 顶部导航 ========== -->
     <header class="nav">
         <a class="nav-brand" href="index.html">
@@ -144,6 +167,7 @@
             </article>
 
         </div>
+        </div>
     </section>
 
     <!-- ========== 02 加入条件 ========== -->
@@ -198,6 +222,7 @@
                 </ol>
             </article>
 
+        </div>
         </div>
     </section>
 
@@ -289,6 +314,7 @@
                 </ul>
             </div>
 
+        </div>
         </div>
     </section>
 

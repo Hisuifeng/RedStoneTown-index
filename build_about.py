@@ -75,6 +75,12 @@ def time_key(time_str):
         return (0, 0, 0)
 
 
+def file_number(name):
+    """从文件名提取数字，如 p7.txt -> 7，无数字返回 0。"""
+    m = re.search(r"(\d+)", name or "")
+    return int(m.group(1)) if m else 0
+
+
 def build_li(title, time, text, id_no, checked):
     """生成单个 <li> 条目。checked: 是否默认展示。"""
     checked_attr = " checked" if checked else ""
@@ -97,14 +103,15 @@ def build_li(title, time, text, id_no, checked):
 def build_timeline(items):
     """将解析后的条目渲染为 <ol class="timeline"> 内部列表内容。
 
-    items 为 [(title, time, text), ...]。按 time 降序（最新在前），
+    items 为 [(文件名, (title, time, text)), ...]。先按 time 降序（最新在前），
+    同一天再按文件名数字降序（编号大者更新，保证顺序与编号稳定确定），
     时间线顶部始终展示最新公告（checked）。
     """
-    valid = [(t, tm, tx) for (t, tm, tx) in items if t and tm and tx]
-    valid.sort(key=lambda x: time_key(x[1]), reverse=True)
+    valid = [(n, (t, tm, tx)) for (n, (t, tm, tx)) in items if t and tm and tx]
+    valid.sort(key=lambda x: (time_key(x[1][1]), file_number(x[0])), reverse=True)
 
     entries = []
-    for i, (title, time, text) in enumerate(valid):
+    for i, (_, (title, time, text)) in enumerate(valid):
         # 最新的（时间最大的）默认展示
         checked = i == 0
         entries.append(build_li(title, time, text, len(valid) - i, checked))
@@ -135,7 +142,7 @@ def main():
     # 只替换时间线区块的 <ol> 内部内容
     def repl(match):
         return match.group(1) + "\n" + build_timeline(
-            [parse_txt(content) for _, content in items]
+            [(name, parse_txt(content)) for name, content in items]
         ) + "                " + match.group(3)
 
     new_source, count = TIMELINE_OL.subn(repl, source, count=1)
