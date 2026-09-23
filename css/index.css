@@ -290,6 +290,7 @@
     padding: clamp(36px, 6vw, 64px) 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    overflow: hidden; /* 收拢两侧溢出卡片，避免页面横向滚动 */
 }
 
 /* 舞台网格底纹：科技感线条，向中心淡出 */
@@ -601,23 +602,23 @@
         opacity: 0.25;
     }
 
-    /* 社区组织：小屏收窄卡片并加大侧倾，避免超出可视宽度 */
+    /* 社区组织：小屏收窄卡片与侧移，避免超出可视宽度 */
     .dept-carousel {
         grid-template-columns: 1fr;
     }
 
     .dept-stage {
-        --dept-w: clamp(180px, 58vw, 260px);
-        perspective: 1000px;
-        padding: 36px 0;
+        --dept-w: clamp(160px, 48vw, 230px);
+        perspective: 900px;
+        padding: 32px 0;
     }
 
     .dept-card.pos--1 {
-        transform: translateX(-70%) translateZ(-70px) rotateY(0deg) scale(0.82);
+        transform: translateX(-48%) translateZ(-60px) rotateY(0deg) scale(0.8);
     }
 
     .dept-card.pos-1 {
-        transform: translateX(70%) translateZ(-70px) rotateY(0deg) scale(0.82);
+        transform: translateX(48%) translateZ(-60px) rotateY(0deg) scale(0.8);
     }
 
     .dept-more {
